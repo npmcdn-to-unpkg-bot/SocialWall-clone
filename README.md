@@ -1,6 +1,5 @@
 # SocialWall
 Display #hashtag from Twitter &amp; Instagram, posts &amp; feed from Facebook ; connection with API's
-<br><br>
 ## In app/Social/Socialwall.php
 Modify the time to refresh the BDD<br>
 line 22   $refreshTime
@@ -20,7 +19,6 @@ line 153   $appId<br>
 line 154   $appSecret<br>
 line 155   $appToken<br>
 And your url connect with facebook app<br>
-line 162   $url<br>
-<br><br>
+line 162   $url
 ##In index.php
 You can call 1 or all actions.
