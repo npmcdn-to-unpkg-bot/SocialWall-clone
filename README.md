@@ -1,7 +1,7 @@
 # SocialWall
 Display #hashtag from Twitter &amp; Instagram, posts &amp; feed from Facebook ; connection with API's
 <br><br><br>
-In app/social/Socialwall.php
+In app/Social/Socialwall.php
 <br><br>
 Modify the time to refresh the BDD<br>
 line 22   $refreshTime
