@@ -1,11 +1,6 @@
-Infinite-Social-Wall
+Social Wall
 ====================
-###An infinite social stream based on RSS feeds with a MySQL backend.
-####Hosted Version Coming Soon - [infinitesocialwall.appspot.com](http://infinitesocialwall.appspot.com)
-
-![ISW Demo](http://i.imgur.com/pbmEG.jpg)
-
-A video demonstrating the functionality (unfortunately not showing the beautiful CSS3 transitions) can be seen on [youtube][video]. As well as on my personal homepage [philipbjorge.com][mysite].
+###Display #hashtag from Twitter &amp; Instagram, posts &amp; feed from Facebook ; connection with API's
 
 ##Officially Supported Networks (Icons/Styles included)
 Currently supports the following social networks (however it should work reasonably well with any RSS feed):
@@ -19,21 +14,8 @@ Currently supports the following social networks (however it should work reasona
  * Instagram
 
 ##Installation
-##Detailed instructions can be found on the [wiki](https://github.com/philipbjorge/Infinite-Social-Wall/wiki/Detailed-Installation).
 ###Database + Server
-Create a database (or use an existing one).
-
-Create the archive table.
-
-    CREATE TABLE `archived_social_items` (
-        `id` varchar(32) NOT NULL,
-        `category` varchar(255) NOT NULL,
-        `title` text NOT NULL,
-        `content` text NOT NULL,
-        `link` text NOT NULL,
-        `date` datetime NOT NULL,
-        UNIQUE KEY `item_id` (`id`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+Create a database (or use an existing one), install 2 tables with socialwall.sql
 
 Modify config.php's mysql settings to point to your database.
 
