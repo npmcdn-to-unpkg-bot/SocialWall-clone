@@ -6,7 +6,7 @@ Create an application.
 * App ID
 * App secret
 * App token
-* link to connect<br>
+* link to connect*
 ### Twitter
 * Consumer key
 * Consumer secret
