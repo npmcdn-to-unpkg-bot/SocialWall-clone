@@ -92,7 +92,7 @@ class Socialwall extends Database{
     /**
     * Instagram Settings
     **/
-    private function setInstagram($client_id = 'b112119befe14900bbbcfd49fbbe407d', $client_secret = '9a6cf5f3095541a78c3e0e52fb3e269b'){
+    private function setInstagram($client_id = '__REPLACE_THIS__CLIENT_ID', $client_secret = '__REPLACE_THIS__CLIENT_SECRET'){
 
         $url    = 'https://api.instagram.com/v1/tags/'.$this->tag.'/media/recent?client_id='.$client_id;
         $json   = file_get_contents($url);
@@ -121,10 +121,10 @@ class Socialwall extends Database{
     * Twitter Settings
     **/
     private function setTwitter(){
-        $consumerKey        = '3D8xHJIO0hdgforHsRRWtg';
-        $consumerSecret     = 'X1xyNGP8VKeWTTPmWp7FnNUUoYN26AHgTHb78jt7nIg';
-        $accessToken        = '289447927-o3ku7gecEN13wH2dVlfThIhEPd5Rjxvak1g0GO5h';
-        $accessTokenSecret  = 'rK8nUKRAsMm8udHsdaoV7WUgI2fo40RrGEwO6i9xfGyqU';
+        $consumerKey        = '__REPLACE_THIS__CONSUMER_ID';
+        $consumerSecret     = '__REPLACE_THIS__CONSUMER_SECRET';
+        $accessToken        = '__REPLACE_THIS__ACCESS_TOKEN';
+        $accessTokenSecret  = '__REPLACE_THIS__ACCESS_TOKEN_SECRET';
 
         $oauth      = new TwitterOAuth($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
         $tweets     = $oauth->get('search/tweets', ['q' => $this->tag, 'include_entities' => true]);
@@ -161,14 +161,14 @@ class Socialwall extends Database{
     * Facebook Settings
     **/
     private function setFacebook(){
-            $appId      = '202700656532625';
-            $appSecret  = 'fea581f545f20077de77c196e3e073a9';
-            $appToken   = 'CAAC4Wuyg3JEBAJkSZBUt5MdQINujfktIUAHXsTb2Ey0e164O4VlDixHPzDvkyoMUFq79FyLA8q5r9hQOxBimZAfTvqLElPzacauGbb1J1OmYxN3o05JSxaIbZBYssxdUvdxYKxz94RrLULGWzxcUgtmd6i2fRi0T6hfTVaFK8bjXdJ2xPTiQVdOEmq6ghmJ0j3XB3NKjkZAeKV9f6kuZBlPo3HTK5HC90ORxyJz8ZB2AZDZD';
+            $appId      = '__REPLACE_THIS__APP_ID';
+            $appSecret  = '__REPLACE_THIS__APP_SECRET';
+            $appToken   = '__REPLACE_THIS__APP_TOKEN';
 
             $_SESSION['fb_token'] = $appToken;
 
             $connect    = new FacebookConnect($appId, $appSecret);
-            $user       = $connect->connect('http://localhost/socialwall/theme-1.php');
+            $user       = $connect->connect('__REPLACE_THIS__CONNECT');
 
             $url        = "https://graph.facebook.com/".$this->fbName."/feed?access_token=".$appToken;
             $json       = file_get_contents($url);
@@ -178,11 +178,7 @@ class Socialwall extends Database{
                 $img            = "";
                 if(!empty($obj->object_id)){
                     $img        = 'https://graph.facebook.com/'.$obj->object_id.'/picture?type=normal';
-                }/*else{
-                    $parts      = parse_url($obj->picture);
-                    parse_str($parts['query'], $query);
-                    $img        = urldecode ($query['url']);
-                }*/
+                }
                 $id_social      = md5($obj->id.":".$obj->created_time);
                 $date_created   = Date('Y-m-d H:i:s', strtotime($obj->created_time));
                 $username       = $obj->from->name;
@@ -205,11 +201,7 @@ class Socialwall extends Database{
                   $img          = "";
                 if(!empty($obj->object_id)){
                     $img        = 'https://graph.facebook.com/'.$obj->object_id.'/picture?type=normal';
-                }/*else{
-                    $parts      = parse_url($obj->picture);
-                    parse_str($parts['query'], $query);
-                    $img        = urldecode ($query['url']);
-                }*/
+                }
                 $id_social      = md5($obj->id.":".$obj->created_time);
                 $date_created   = Date('Y-m-d H:i:s', strtotime($obj->created_time));
                 $username       = $obj->from->name;
