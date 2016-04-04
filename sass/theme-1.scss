@@ -1,0 +1,322 @@
+@import 'compass';
+@import '_variables';
+@import '_mixins';
+@import '_layout';
+
+
+/*------------------------------------*\
+    $Reset
+\*------------------------------------*/
+*, *:after, *:before{
+    @include box-sizing(border-box);
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    color: #000;
+}
+a{ text-decoration: none; }
+img{ max-width: 100%; }
+
+
+/*------------------------------------*\
+    $Thème 1
+\*------------------------------------*/
+.cb{
+    clear: both;
+    line-height: 1px;
+}
+.content{
+    border: solid 1px transparent;
+    position: relative;
+    top: 0; bottom: 0; left: 0; right: 0;
+    height: 100%;
+    margin:0;
+    padding:0;
+    background-size: 100% ;
+    width:100%;
+    background-color: rgba(125, 169, 62, 0.3);
+    &:before{
+        content: '';
+        position: fixed;
+        height: 100%; width: 100%;
+        background: url('../images/background-1.jpg');
+        @include background-size(cover);
+        z-index: -1;
+    }
+}
+
+
+/* --------------------------------
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+
+.cd-container {
+    width: 90%;
+    max-width: $L;
+    margin: 0 auto;
+
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+#cd-timeline {
+    position: relative;
+    padding: 2em 0;
+    margin: {
+        top: 2em;
+        bottom: 2em;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 18px;
+        height: 100%;
+        width: 4px;
+        background: #FFF;
+    }
+
+    @include MQ(L) {
+        margin: {
+            top: 3em;
+            bottom: 3em;
+        }
+        &::before {
+            left: 50%;
+            margin-left: -2px;
+        }
+    }
+}
+
+.cd-timeline-block {
+    position: relative;
+    margin: 2em 0;
+    @include clearfix;
+
+    &:first-child { margin-top: 0; }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include MQ(L) {
+        margin: 4em 0;
+        &:first-child { margin-top: 0; }
+        &:last-child { margin-bottom: 0; }
+    }
+}
+
+
+.cd-timeline-social{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: solid 4px #FFF;
+    color: #FFF;
+    text-align: center;
+    i {
+        position: relative;
+        display: block;
+        top: 50%;
+        left: 50%;
+        @include transform(translateX(-50%) translateY(-50%));
+        @include transform(translateX(-50%) translateY(-50%));
+    }
+    &.cd-facebook{ background: $facebook-color; }
+    &.cd-twitter{ background: $twitter-color; }
+    &.cd-instagram{ background: $instagram-color; }
+
+    @include MQ(L) {
+        width: 60px;
+        height: 60px;
+        left: 50%;
+        margin-left: -30px;
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        .cssanimations &.is-hidden { visibility: hidden; }
+        .cssanimations &.bounce-in {
+            visibility: visible;
+            @include animation(cd-bounce-1 .6s);
+        }
+    }
+}
+
+@include keyframes(cd-bounce-1) {
+    0% {
+        opacity: 0;
+        @include transform(scale(.5));
+    }
+
+    60% {
+        opacity: 1;
+        @include transform(scale(1.2));
+    }
+
+    100% {
+        @include transform(scale(1));
+    }
+}
+
+.cd-timeline-content {
+    position: relative;
+    margin-left: 60px;
+    background: #FFF;
+    min-height: 60px;
+    //@include border-radius(1em);
+    @include clearfix;
+    overflow: visible;
+
+    img{
+        width: 100%;
+    }
+
+    p{
+        padding: 1em;
+        @include font-size(13px);
+    }
+
+    small{
+        @include font-size(12px);
+        float: left;
+        color: #757575;
+        font-style: italic;
+        padding: 0 1em 1em 1em;
+    }
+    .author{
+        @include font-size(12px);
+        float: right;
+        padding: 0 1em 1em 1em;
+        @include clearfix;
+    }
+    .author-facebook{
+        @extend .author;
+        color: $facebook-color;
+    }
+    .author-twitter{
+        @extend .author;
+        color: $twitter-color;
+    }
+    .author-instagram{
+        @extend .author;
+        color: $instagram-color;
+    }
+
+    &::before {
+        content:'';
+        position: absolute;
+        top: 16px;
+        right: 100%;
+        height: 0;
+        width: 0;
+        border: 7px solid transparent;
+        border-right: 7px solid #FFF;
+    }
+
+    @include MQ(M) {
+        h2 {
+            @include font-size(20px);
+        }
+
+        p {
+            @include font-size(16px);
+        }
+
+        .cd-read-more, .cd-date {
+            @include font-size(14px);
+        }
+    }
+
+    @include MQ(L) {
+        margin-left: 0;
+        width: 45%;
+
+        &::before {
+            top: 24px;
+            left: 100%;
+            border-color: transparent;
+            border-left-color: $color-3;
+        }
+
+
+        .cd-timeline-block:nth-child(even) & {
+            float: right;
+
+            &::before {
+                top: 24px;
+                left: auto;
+                right: 100%;
+                border-color: transparent;
+                border-right-color: $color-3;
+            }
+
+            .cd-read-more {
+                float: right;
+            }
+
+            .cd-date {
+                left: auto;
+                right: 122%;
+                text-align: right;
+            }
+        }
+
+        .cssanimations &.is-hidden {
+            visibility: hidden;
+        }
+
+        .cssanimations &.bounce-in {
+            visibility: visible;
+            @include animation(cd-bounce-2 .6s);
+        }
+    }
+}
+
+@include MQ(L) {
+    .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
+        @include animation(cd-bounce-2-inverse .6s);
+    }
+}
+
+@include keyframes(cd-bounce-2) {
+    0% {
+        opacity: 0;
+        @include transform(translateX(-100px));
+    }
+
+    60% {
+        opacity: 1;
+        @include transform(translateX(20px));
+    }
+
+    100% {
+        @include transform(translateX(0));
+    }
+}
+
+@include keyframes(cd-bounce-2-inverse) {
+    0% {
+        opacity: 0;
+        @include transform(translateX(100px));
+    }
+
+    60% {
+        opacity: 1;
+        @include transform(translateX(-20px));
+    }
+
+    100% {
+        @include transform(translateX(0));
+    }
+}
+

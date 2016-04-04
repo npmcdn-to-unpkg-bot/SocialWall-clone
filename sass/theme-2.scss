@@ -1,0 +1,116 @@
+@import 'compass';
+
+
+/*------------------------------------*\
+    $Reset
+\*------------------------------------*/
+body{
+    font-family: Helvetica, sans-serif;
+}
+*{ box-sizing: border-box; }
+
+
+/*------------------------------------*\
+    $Varialbes
+\*------------------------------------*/
+$default-transition-duration: 0.3s;
+$facebook-color: #3b5998;
+$twitter-color: #55acee;
+$instagram-color: #7f729b;
+
+
+/*------------------------------------*\
+    $Mixins
+\*------------------------------------*/
+@mixin swMixinGrid($color){
+    background-color: $color;
+    .sw-info{
+        border-color: $color;
+    }
+    &:hover{
+        .sw-info{ color: $color; }
+    }
+}
+@mixin swMixinPub($color){
+    background-color: $color;
+    border: solid 1px $color;
+    @include transition;
+    .sw-pub-name{ color: $color; }
+    &:hover{
+        background-color: #fff;
+        color: $color;
+    }
+}
+
+
+/*------------------------------------*\
+    $Theme 2
+\*------------------------------------*/
+.grid-item {
+    width: 230px;
+    margin: 10px;
+    text-align: left;
+    color: #fff;
+    @include transition;
+    &:hover{
+        .sw-info{ background-color: #fff; }
+    }
+    img{
+        margin: 0;
+        vertical-align: bottom;
+    }
+    .sw-text{
+        padding: 10px;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .sw-info{
+        display: block;
+        padding: 10px;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        border-style: solid;
+        border-width: 1px;
+        border-top: none;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        i{ padding-right: 6px; }
+    }
+}
+.grid-item--width2 { width: 480px; }
+
+.sw-pub{
+    display: block;
+    height: 250px;
+    text-align: center;
+    text-decoration: none;
+    h4{
+        font-size: 26px;
+        margin: 0;
+        padding: 5px 0 25px 0;
+    }
+    .sw-pub-logo{ padding: 50px 0 35px 0; }
+}
+.sw-pub-facebook{
+    @include swMixinPub($facebook-color);
+}
+.sw-pub-twitter{
+    @include swMixinPub($twitter-color);
+}
+.sw-pub-instagram{
+    @include swMixinPub($instagram-color);
+}
+
+.facebook{
+    @include swMixinGrid($facebook-color);
+}
+.twitter{
+    @include swMixinGrid($twitter-color);
+}
+.instagram{
+    @include swMixinGrid($instagram-color);
+}
