@@ -1,24 +1,25 @@
 # SocialWall
 Display #hashtag from Twitter &amp; Instagram, posts &amp; feed from Facebook ; connection with API's
+## Require
+### Facebook
+Create an application.
+* App ID
+* App secret
+* App token
+* link to connect
+### Twitter
+* Consumer key
+* Consumer secret
+* Access token
+* Access token secret
+### Instagram
+* Customer ID
+* Customer secret
+## BDD
+Install the bdd -> socialwall.sql
 ## In app/Social/Socialwall.php
 Modify the time to refresh the BDD<br>
-line 22   $refreshTime
-<br><br>
-Enter your Instagram code<br>
-line 94   $client_id<br>
-line 94   $client_secret
-<br><br>
-Enter your Twitter code<br>
-line 123   $consumerKey<br>
-line 124   $consumerSecret<br>
-line 125   $accessToken<br>
-line 126   $accessTokenSecret
-<br><br>
-Enter your Facebook code<br>
-line 153   $appId<br>
-line 154   $appSecret<br>
-line 155   $appToken<br>
-And your url connect with facebook app<br>
-line 162   $url
-##In index.php
-You can call 1 or all actions.
+Modify where you show __REPLACE_THIS__
+##Theme
+You can call 1 or all actions.<br>
+Put your hashtag and Facebook name.
