@@ -24,7 +24,7 @@ require __DIR__.'/vendor/autoload.php';
 /**
 * DEMO
 **/
-/*    $socialwall = new Socialwall('festivaloiseau', 'festivaloiseaunature');
+/*    $socialwall = new Socialwall(''__REPLACE_THIS__HASHTAG__', '__REPLACE_THIS__FB_NAME__');
     foreach($socialwall->getAll() as $all){
         echo "Username : ".$all->username."<br>";
         echo "Date : ".$all->date_created."<br>";
