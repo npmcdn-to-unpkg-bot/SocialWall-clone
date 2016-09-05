@@ -78,7 +78,7 @@ $i = 0;
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/theme-2.js"></script>
-<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
 
 </body>
